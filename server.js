@@ -4,7 +4,7 @@ var http = require('http')
   , port = 8080;
 
 
-// NOTE: your dataset can be as simple as the following, you need only implement functions for addition, deletion, and modification that are triggered by outside (i.e. client) actions, and made available to the front-end
+// NOTE: your daaset can be as simple as the following, you need only implement functions for addition, deletion, and modification that are triggered by outside (i.e. client) actions, and made available to the front-end
 var data = [
   {'model': 'toyota', 'year': 1999, 'mpg': 23},
   {'model': 'honda', 'year': 2004, 'mpg': 30},
