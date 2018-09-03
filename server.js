@@ -27,6 +27,13 @@ var server = http.createServer (function (req, res) {
     case '/js/scripts.js':
       sendFile(res, 'public/js/scripts.js', 'text/javascript')
       break
+    case '/css/horoscope_bg.jpg':
+      sendFile(res, 'public/css/horoscope_bg.jpg')
+      break
+    case '/css/caveat-regular.ttf':
+      sendFile(res, 'public/css/caveat-regular.ttf')
+      break
+
     default:
       res.end('404 not found')
   }
