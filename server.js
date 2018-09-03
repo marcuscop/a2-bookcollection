@@ -34,7 +34,7 @@ var server = http.createServer (function (req, res) {
       sendFile(res, 'public/css/caveat-regular.ttf')
       break
     case '/submit.html':
-      sendFile(res, 'public/js/submit.html')
+      sendFile(res, 'public/submit.html')
       console.log("Hello");
       break
     default:
