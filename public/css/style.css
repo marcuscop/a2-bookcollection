@@ -1,1 +1,13 @@
-/*Style your own assignment! This is fun! */
+/*Style your own assignment! This is fun! */body {
+	/*background-image: url(background_picture.jpg);*/
+	background-size: cover;
+	font-family: Verdana;
+
+}
+
+div.header{
+	background-image:url(horoscope_bg.jpg);
+	background-size: auto;
+	font-family: Verdana;
+	color: white;
+}
