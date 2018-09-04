@@ -35,7 +35,6 @@ var server = http.createServer (function (req, res) {
       break
     case '/submit.html':
       sendFile(res, 'public/submit.html')
-      console.log("Hello");
       break
     default:
       res.end('404 not found')
