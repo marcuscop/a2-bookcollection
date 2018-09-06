@@ -33,7 +33,10 @@ var server = http.createServer (function (req, res) {
     case '/css/caveat-regular.ttf':
       sendFile(res, 'public/css/caveat-regular.ttf')
       break
-
+    case '/submit.html':
+      sendFile(res, 'public/js/submit.html')
+      console.log("Hello");
+      break
     default:
       res.end('404 not found')
   }
