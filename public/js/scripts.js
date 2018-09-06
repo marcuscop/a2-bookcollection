@@ -4,14 +4,19 @@ function addToTable() {
     var text = "";
     var i;
     var rowlen = document.getElementById("myTable").rows.length;
+    var table = document.getElementById("myTable");
+    var row = table.insertRow();
+    var cell;
     for (i = 0; i < x.length ;i++) {
         //console.log(x.elements[i].value);
         //console.log(x.length);
-        text += x.elements[i].value;
+        text = x.elements[i].value;
         //console.log(text);
-        document.getElementById("myTable").insertRow();
-        document.getElementById("myTable").rows.item(rowlen).innerHTML = text;
+        cell = row.insertCell();
+        cell.innerHTML = text;
+        //document.getElementById("myTable").rows.item(rowlen).innerHTML = text;
     }
+    //document.getElementById("myTable").rows.item(rowlen).innerHTML = text;
 
 }
 
