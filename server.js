@@ -11,28 +11,33 @@ var books = [
 ]
 
 var server = http.createServer (function (req, res) {
+
   var uri = url.parse(req.url)
 
   switch( uri.pathname ) {
-    //printBooks();
     case '/':
       sendFile(res, 'public/index.html')
+      //printBooks();
       break
     case '/index.html':
       sendFile(res, 'public/index.html')
+      //printBooks();
       break
     case '/css/style.css':
       sendFile(res, 'public/css/style.css', 'text/css')
       break
     case '/js/scripts.js':
       sendFile(res, 'public/js/scripts.js', 'text/javascript')
+      //printBooks();
       break
     case '/css/caveat-regular.ttf':
       sendFile(res, 'public/css/caveat-regular.ttf')
       break
     case '/books':
+      console.log(req.method);
+      console.log(req.body);
       res.end(JSON.stringify(books))
-      //printBooks();
+      //books.push({ 'id' : req.body[4], 'title': req.body[0], 'author' : req.body[1], 'genre': req.body[2], 'date': req.body[3]});
       break
     default:
       res.end('404 not found')

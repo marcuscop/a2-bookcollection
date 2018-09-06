@@ -22,8 +22,8 @@ function addDBEntry(book){
   console.log("hello")
   xhr = new XMLHttpRequest()
   xhr.onreadystatechange = handle_res
-  xhr.open("GET", "/books")
-  xhr.send()
+  xhr.open("POST", "/books", true)
+  xhr.send('hellllo')
 
   function handle_res(){
     if(this.readyState != 4) return;
@@ -31,8 +31,14 @@ function addDBEntry(book){
       //
     }
 
-    var books = JSON.parse(this.responseText)
-    books.push({ 'id' : book[0], 'title': book[1], 'author' : book[2], 'genre': book[3], 'date': book[4]});
+    /*var books = JSON.parse(this.responseText)
+    books.push({ 'id' : book[4], 'title': book[0], 'author' : book[1], 'genre': book[2], 'date': book[3]});
+    books.forEach(function(d){
+      document.getElementById('booksgohere').innerHTML = document.getElementById('booksgohere').innerHTML + d.title  // createElement('div').text(d.title)
+      //var newContent = documentTextNode("Hi there");
+      //document.getElementbyId(id);
+    })*/
+
   }
 
 }
