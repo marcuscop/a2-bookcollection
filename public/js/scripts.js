@@ -5,9 +5,35 @@ function addToTable() {
     var i;
     var rowlen = document.getElementById("myTable").rows.length;
     for (i = 0; i < x.length ;i++) {
-        text += x.elements[i].value + "<br>";
+        //console.log(x.elements[i].value);
+        //console.log(x.length);
+        text += x.elements[i].value;
+        //console.log(text);
         document.getElementById("myTable").insertRow();
-        document.getElementById("myTable").rows.item(rowlen+1).innerHTML = text;
+        document.getElementById("myTable").rows.item(rowlen).innerHTML = text;
     }
-    document.getElementById("demo").innerHTML = text;
+
+}
+
+function addToDB(){
+  console.log("hello")
+  xhr = new XMLHttpRequest()
+  xhr.onreadystatechange = handle_res
+  xhr.open("GET", "/books")
+  xhr.send()
+
+  function handle_res(){
+    if(this.readyState != 4) return;
+    if(this.status != 200){
+      //
+    }
+
+    var movies = JSON.parse(this.responseText)
+    movies.forEach(function(d){
+      document.getElementById('booksgohere').innerHTML = document.getElementById('booksgohere').innerHTML + d.title  // createElement('div').text(d.title)
+      //var newContent = documentTextNode("Hi there");
+      //document.getElementbyId(id);
+    })
+  }
+
 }
