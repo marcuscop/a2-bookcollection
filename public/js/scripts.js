@@ -1,5 +1,7 @@
 // Add some Javascript code here, to run on the front end.
 function addToTable() {
+    var book = [];
+
     var x = document.getElementById("form1");
     var text = "";
     var i;
@@ -8,19 +10,15 @@ function addToTable() {
     var row = table.insertRow();
     var cell;
     for (i = 0; i < x.length ;i++) {
-        //console.log(x.elements[i].value);
-        //console.log(x.length);
+        book[i] = x.elements[i].value;
         text = x.elements[i].value;
-        //console.log(text);
         cell = row.insertCell();
         cell.innerHTML = text;
-        //document.getElementById("myTable").rows.item(rowlen).innerHTML = text;
     }
-    //document.getElementById("myTable").rows.item(rowlen).innerHTML = text;
-
+    addDBEntry(book);
 }
 
-function addToDB(){
+function addDBEntry(book){
   console.log("hello")
   xhr = new XMLHttpRequest()
   xhr.onreadystatechange = handle_res
@@ -33,8 +31,28 @@ function addToDB(){
       //
     }
 
-    var movies = JSON.parse(this.responseText)
-    movies.forEach(function(d){
+    var books = JSON.parse(this.responseText)
+    books.push({ 'id' : book[0], 'title': book[1], 'author' : book[2], 'genre': book[3], 'date': book[4]});
+  }
+
+}
+
+
+function modifyDBEntry(){
+  console.log("hello")
+  xhr = new XMLHttpRequest()
+  xhr.onreadystatechange = handle_res
+  xhr.open("GET", "/books")
+  xhr.send()
+
+  function handle_res(){
+    if(this.readyState != 4) return;
+    if(this.status != 200){
+      //
+    }
+
+    var books = JSON.parse(this.responseText)
+    books.forEach(function(d){
       document.getElementById('booksgohere').innerHTML = document.getElementById('booksgohere').innerHTML + d.title  // createElement('div').text(d.title)
       //var newContent = documentTextNode("Hi there");
       //document.getElementbyId(id);

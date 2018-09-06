@@ -14,6 +14,7 @@ var server = http.createServer (function (req, res) {
   var uri = url.parse(req.url)
 
   switch( uri.pathname ) {
+    //printBooks();
     case '/':
       sendFile(res, 'public/index.html')
       break
@@ -31,6 +32,7 @@ var server = http.createServer (function (req, res) {
       break
     case '/books':
       res.end(JSON.stringify(books))
+      //printBooks();
       break
     default:
       res.end('404 not found')
@@ -51,4 +53,15 @@ function sendFile(res, filename, contentType) {
     res.end(content, 'utf-8')
   })
 
+}
+
+function printBooks(){
+  var i;
+  for(i=0; i<books.length; i++){
+    console.log(books[i].id);
+    console.log(books[i].title);
+    console.log(books[i].author);
+    console.log(books[i].genre);
+    console.log(books[i].date);
+  }
 }
