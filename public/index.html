@@ -8,62 +8,99 @@
   <body>
 
     <div class="header">
-    	<h1>Horoscope quiz</h1>
-    	<p>"Each zodiac sign has a separate set of persona than the other signs. It is important to understand our zodiac signs better as it will help us to achieve success.It might sound as a pseudo-science to many, but if we explore it deep, we will be surprised to gain the bundle of miracle that the cosmos offers." </p> <p>
-    	Credit: https://trendingposts.net/trending-news/what-does-your-zodiac-sign-say-about-you/</p>
-    	<p><i>Let's find out your zodiac sign!</i></p>
+    	<h1>Your book collection</h1>
+    	<p>"Let us remember: One book, one pen, one child, and one teacher can change the world."
+		 </p> <p>
+    	-Malala Yousafzai-</p>
+    	<p><i>Let's explore your world of books</i></p>
 
     </div>
 
     <div class="content">
-    	<form action="/submit.html">
+    	<form id="form1">
     	<p>
 	    	<label for="name">
-	    		<span>Name: </span>
+	    		<span>Book Name: </span>
 	    	</label>
-	    	<input type = "text" id="name" name="username">
+	    	<input type = "text" id="name" name="bookname">
     	</p>
 
+
     	<p>
-    	<label for="gender">
-		    <span>Gender: </span></label>
+ 			<label for="author">
+    			<span>Author: </span>
+	    	</label>
+	    	<input type = "text" id="author" name="author">
+	    </p>
+
+    	<p>
+    	<label for="genre">
+		    <span>Genre: </span></label>
 		    <ul style="list-style:none">
 		    	<li>
-		    	<input type="radio" id="male" name="gender" value="male">
-		    	Male</li>
+		    	<input type="checkbox" id="action" name = "genre1" value="action">
+		    	Action</li>
 		    	<li>
-		 		<input type="radio" id="female" name="gender" value="female">
-		 		Female</li>
+		 		<input type="checkbox" id="romance" name = "genre2" value="romance">
+		 		Romance</li>
 		 		<li>
-		 		<input type="radio" id="other" name="gender" value="other">
+		 		<input type="checkbox" id="fiction" name = "genre3" value="fiction">
+		 		Fiction</li>
+		 		<li>
+		 		<input type="text" id="other" name = "genre4">
 		 		Other</li>
 		 	</ul>
  		</p>
- 		<p>
- 			<label for="email">
-    			<span>Email: </span>
-	    	</label>
-	    	<input type = "email" id="email" name="email">
-	    </p>
+ 		
 	    <p>
- 			<label for="bday">
-    			<span>Birthday: </span>
+ 			<label for="publishedyear">
+    			<span>Published date: </span>
 	    	</label>
-	    	<input type = "date" id="bday" name="bday">
+	    	<input type = "date" id="published" name="published">
 	    </p>
 	    <p>
  			<label for="fav-color">
-    			<span>Favorite color: </span>
+    			<span>Side question: Favorite color: </span>
 	    	</label>
 	    	<input type = "color" id="fav-color" name="fav-color" value="#00cc00">
 	    </p>
+	    </form> 
+    </div>
 
-	    </div>
+	    <h2>Book Collection</h2>
+
+		<table id="myTable">
+		  <tr style="text-align:center">
+		    <th>Name</th>
+		    <th>Author</th> 
+		    <th>Genre</th>
+		    <th>Published date</th>
+		  </tr>
+		  <tr>
+		    <td>Jill</td>
+		    <td>Smith</td>
+		    <td>Action</td>
+		    <td>01-01-2018</td>
+		  </tr>
+		  <tr>
+		    <td>Eve</td>
+		    <td>Jackson</td>
+		    <td>Romance,Action</td>
+		    <td>05-30-2019</td>
+		  </tr>
+		  <tr>
+		    <td>John</td>
+		    <td>Doe</td>
+		    <td>Romance,Action</td>
+		    <td>10-15-1986</td>
+		  </tr>
+		</table>
+		<br>
 
 		 <br><br><br>
 		<p >
-			<input type="submit" class="button" value="Let's find out">
+			<button onclick="addToTable()"> Let's find out</button>
 		</p>
-	</form>
+	
   </body>
 </html>
