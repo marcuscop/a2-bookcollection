@@ -90,6 +90,61 @@
     <p>
 			<button onclick="deleteFromTable()"> Delete Book</button>
 		</p>
+	<p id="invalid"></p>
+
+	<h2>Modify a Book from the list</h2>
+	<div class="content">
+    	<form id="form3">
+    	<p>
+	    	<label for="titlemod">
+	    		<span>Book Title: </span>
+	    	</label>
+	    	<input type = "text" id="titlemod" name="booknamemod">
+    	</p>
+      </form>
+    </div>
+
+    <p>
+			<button onclick="modifyTable()"> Modify Book</button>
+		</p>
+	<p id="invalidmod"></p>
+	<p id = "you_modify"> </p>
+
+	<div id="modify">
+	<form id="form4">
+    	<p>
+	    	<label for="new_title">
+	    		<span>Update Book Title: </span>
+	    	</label>
+	    	<input type = "text" id="new_title" name="newbookname">
+    	</p>
+
+
+    	<p>
+ 			<label for="newauthor">
+    			<span>Update Author Name: </span>
+	    	</label>
+	    	<input type = "text" id="newauthor" name="newauthor">
+	    </p>
+
+      <p>
+ 			<label for="newgenre">
+    			<span>Update Genre: </span>
+	    	</label>
+	    	<input type = "text" id="newgenre" name="newgenre">
+	    </p>
+
+	    <p>
+ 			<label for="publishedyearnew">
+    			<span>Update Published date: </span>
+	    	</label>
+	    	<input type = "date" id="publishednew" name="publishednew">
+	    </p>
+	    </form>
+
+	    </div>
+
+
 
 	    <h2>Book Collection</h2>
 

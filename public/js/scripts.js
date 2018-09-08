@@ -4,13 +4,18 @@ function deleteFromTable() {
     var x = document.getElementById("form2");
     var text = "";
     var i;
+    var valid =0;
     var table = document.getElementById("myTable");
     for (i = 1; i < table.rows.length; i++) {
         if(x.elements[0].value == table.rows.item(i).cells[0].innerHTML){
+          valid = 1;
           book.push(x.elements[0].value);
           table.deleteRow(i);
           sendDBEntry(book, type);
         }
+    }
+    if (valid == 0) {
+    	document.getElementById("invalid").innerHTML = "There is no book with that name in your collection!";
     }
 
 }
@@ -33,6 +38,30 @@ function addToTable() {
         cell.innerHTML = text;
     }
     sendDBEntry(book, type);
+}
+
+function modifyTable() {
+    var type = "modify";
+    var book = [];
+    var x = document.getElementById("form3");
+    var text = "";
+    var i;
+    var valid = 0;
+    var table = document.getElementById("myTable");
+    for (i = 1; i < table.rows.length; i++) {
+        if(x.elements[0].value == table.rows.item(i).cells[0].innerHTML){ //If book with that name
+          valid = 1;
+          book.push(x.elements[0].value);
+          document.getElementById("you_modify").innerHTML = "Please type in what you want to modify";
+          document.getElementById("modify").style.visibility = "visible";
+          //table.deleteRow(i);
+          sendDBEntr(book, type);
+        }
+    }
+    if (valid == 0) {
+    	document.getElementById("invalidmod").innerHTML = "There is no book with that name in your collection!";
+    }
+
 }
 
 function sendDBEntry(book, type){ // type is the type of operation (add, delete, or modify)
