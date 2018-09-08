@@ -5,9 +5,11 @@ var http = require('http')
 
 
 // NOTE: your dataset can be as simple as the following, you need only implement functions for addition, deletion, and modification that are triggered by outside (i.e. client) actions, and made available to the front-end
+var id_counter = 2; // each book has a unique id
+
 var books = [
-  {'id': '1', 'title': 'Harry Potter','author': 'J.K.Rowling', 'genre': 'fiction', 'date': '03/24/02'},
-  {'id': '2', 'title': 'Lord of the Rings','author': 'J.R.R Tolkien', 'genre': 'fiction', 'date': '09/12/98'}
+  {'id': '1', 'title': 'Harry Potter','author': 'J.K.Rowling', 'genre': 'fiction', 'date': '2002-2-20'},
+  {'id': '2', 'title': 'Lord of the Rings','author': 'J.R.R Tolkien', 'genre': 'fiction', 'date': '1998-9-12'}
 ]
 
 var server = http.createServer (function (req, res) {
@@ -17,27 +19,26 @@ var server = http.createServer (function (req, res) {
   switch( uri.pathname ) {
     case '/':
       sendFile(res, 'public/index.html')
-      //printBooks();
       break
     case '/index.html':
       sendFile(res, 'public/index.html')
-      //printBooks();
       break
     case '/css/style.css':
       sendFile(res, 'public/css/style.css', 'text/css')
       break
     case '/js/scripts.js':
       sendFile(res, 'public/js/scripts.js', 'text/javascript')
-      //printBooks();
       break
     case '/css/caveat-regular.ttf':
       sendFile(res, 'public/css/caveat-regular.ttf')
       break
     case '/books':
-      console.log(req.method);
-      console.log(req.body);
-      res.end(JSON.stringify(books))
-      //books.push({ 'id' : req.body[4], 'title': req.body[0], 'author' : req.body[1], 'genre': req.body[2], 'date': req.body[3]});
+      if(req.method == 'POST'){
+        handle_post(req);
+      }
+      else{
+        res.end(JSON.stringify(books))
+      }
       break
     default:
       res.end('404 not found')
@@ -60,13 +61,54 @@ function sendFile(res, filename, contentType) {
 
 }
 
-function printBooks(){
+function handle_post(req){
+    var body = '';
+    var arr = [];
+    var type = '';
+    req.on('data', function (data) {
+        body += data;
+        arr = body.split(',');
+        type = arr.pop();
+
+        if(type == "add"){
+          handle_add(arr);
+        } else if (type == "modify"){
+          handle_modify(arr);
+        } else if (type == "delete"){
+          handle_delete(arr);
+        } else {
+          console.log("ERROR: Invalid operation on the database");
+        }
+    });
+    req.on('end', function () {
+        console.log('end');
+    });
+}
+
+function handle_add(arr){
+  books.push({ 'id' : (id_counter+1).toString(), 'title': arr[0], 'author' : arr[1], 'genre': arr[2], 'date': arr[3]});
+  // increment id_counter
+  id_counter++;
+  console.log(books);
+}
+
+/*
+function handle_modify(arr){
+  // do modify
+  console.log
+}
+*/
+
+function handle_delete(arr){
+  //console.log(books);
   var i;
-  for(i=0; i<books.length; i++){
-    console.log(books[i].id);
-    console.log(books[i].title);
-    console.log(books[i].author);
-    console.log(books[i].genre);
-    console.log(books[i].date);
+  var pos;
+  for(i = 0; i<books.length; i++){
+    if(books[i].title == arr[0]){
+      pos = i;
+      books.splice(pos, 1);
+    }
   }
+
+  console.log(books);
 }
