@@ -92,12 +92,28 @@ function handle_add(arr){
   console.log(books);
 }
 
-/*
+
 function handle_modify(arr){
-  // do modify
-  console.log
+  var i;
+  for(i = 0; i<books.length; i++){
+    if(books[i].title == arr[0]){
+
+      if(arr[1] != ""){
+        books[i].author = arr[1];
+      }
+      if(arr[2] != ""){
+        books[i].genre = arr[2];
+      }
+      if(arr[3] != ""){
+        books[i].date = arr[3];
+      }
+
+    } // if
+  } // for
+
+  console.log(books);
 }
-*/
+
 
 function handle_delete(arr){
   //console.log(books);
