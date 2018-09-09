@@ -1,3 +1,24 @@
+function searchTable() {
+  var x = document.getElementById("form5");
+  var text = "";
+  var i;
+  var valid = 0;
+  var table = document.getElementById("myTable");
+  for (i = 1; i < table.rows.length; i++) {
+      if(x.elements[0].value == table.rows.item(i).cells[0].innerHTML){ //If book with that name
+        valid = 1;
+        document.getElementById("searchResults").innerHTML = (table.rows.item(i).cells[0].innerHTML
+                                                            + "<br><br>Author: " + table.rows.item(i).cells[1].innerHTML
+                                                            + "<br>Genre: " + table.rows.item(i).cells[2].innerHTML
+                                                            + "<br>Publication Date: " + table.rows.item(i).cells[3].innerHTML);
+      }
+  }
+  if (valid == 0) {
+    document.getElementById("invalidSearch").innerHTML = "There is no book with that name in your collection!";
+  }
+
+}
+
 function deleteFromTable() {
     var type = "delete";
     var book = [];
@@ -74,7 +95,7 @@ function modifyTable() {
       if(x.elements[0].value == table.rows.item(i).cells[0].innerHTML){ // finds row
         for(j=0; j<3; j++){
           if(y.elements[j].value != ""){ // finds column
-            console.log(y.elements[j].value);
+            //console.log(y.elements[j].value);
             table.rows.item(i).cells[j+1].innerHTML = y.elements[j].value;
           } // if
         } // for
