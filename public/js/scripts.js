@@ -53,11 +53,19 @@ function addToTable() {
     var row = table.insertRow();
     var cell;
     for (i = 0; i < x.length ;i++) {
+    	console.log(i);
         book[i] = x.elements[i].value;
         text = x.elements[i].value;
         cell = row.insertCell();
         cell.innerHTML = text;
     }
+    //Derived field
+    console.log(i);
+    book[i] = (new Date()).getFullYear() - parseInt(x.elements[i-1].value.substring(0,4));
+    text = (new Date()).getFullYear() - parseInt(x.elements[i-1].value.substring(0,4));
+    cell = row.insertCell();
+    cell.innerHTML = text;
+
     sendDBEntry(book, type);
 }
 

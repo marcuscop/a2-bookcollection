@@ -1,34 +1,39 @@
 /*Style your own assignment! This is fun! */body {
-	/*background-image: url(background_picture.jpg);*/
+	padding-left: 10px;
+	background-image: url(background.jpg);
 	background-size: cover;
-	font-family: Arial;
+	font-family: 'Fjord One', serif;
 
 }
 
-@font-face {
-	font-family: Caveat;
-	src: url(caveat-regular.ttf);
-}
+
+/*@font-face {
+	font-family: canela;
+	src: url(canela.ttf);
+}*/
+
 div.header{
-	background-size: auto;
-	font-family: Caveat;
+	/*background-image: url(horoscope_bg.jpg);
+	color:white;
+	background-size: auto;*/
+	font-family: 'Fjord One', serif;
 	font-size: 1.5em;
-	color: black;
+
 
 }
-.button {
+button {
 	text-align: center;
-	background-color: #4d0099;
-	font-family: Caveat;
-	font-size: 1.4em;
-	color: white;
+	background-color: #cc99ff;
+	font-family: 'Fjord One', serif;
+	font-size: 1em;
+	color: black;
 	border-radius: 20%;
-	padding: 10px 20px;
+	padding: 10px 10px;
 }
 div#modify {
 	visibility: hidden;
 }
-p#invalid, p#invalidmod {
+p#invalid, p#invalidmod, p#invalidSearch {
 	color: red;
 	font-style:italic;
 }
@@ -51,6 +56,6 @@ table tr:nth-child(odd) {
    background-color: #fff;
 }
 table th {
-    background-color: #4d0099;
+    background-color: #cc99ff;
     color: white;
 }

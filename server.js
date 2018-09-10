@@ -1,15 +1,31 @@
 var http = require('http')
   , fs   = require('fs')
   , url  = require('url')
-  , port = 8080;
+  //, Pg   = require('pg');
+  , port =
+ 8080;
 
-
+/*const pg = new Pg({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
+});
+app.get('/db', async (req, res) => {
+  try {
+    const client = await pg.connect()
+    const result = await client.query('SELECT * FROM test_table');
+    res.render('pages/db', result);
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+});*/
 // NOTE: your dataset can be as simple as the following, you need only implement functions for addition, deletion, and modification that are triggered by outside (i.e. client) actions, and made available to the front-end
 var id_counter = 2; // each book has a unique id
 
 var books = [
-  {'id': '1', 'title': 'Harry Potter','author': 'J.K.Rowling', 'genre': 'fiction', 'date': '2002-2-20'},
-  {'id': '2', 'title': 'Lord of the Rings','author': 'J.R.R Tolkien', 'genre': 'fiction', 'date': '1998-9-12'}
+  {'id': '1', 'title': 'Harry Potter','author': 'J.K.Rowling', 'genre': 'fiction', 'date': '2002-2-20','age':'16'},
+  {'id': '2', 'title': 'Lord of the Rings','author': 'J.R.R Tolkien', 'genre': 'fiction', 'date': '1998-9-12','age':'20'}
 ]
 
 var server = http.createServer (function (req, res) {
@@ -86,7 +102,7 @@ function handle_post(req){
 }
 
 function handle_add(arr){
-  books.push({ 'id' : (id_counter+1).toString(), 'title': arr[0], 'author' : arr[1], 'genre': arr[2], 'date': arr[3]});
+  books.push({ 'id' : (id_counter+1).toString(), 'title': arr[0], 'author' : arr[1], 'genre': arr[2], 'date': arr[3], 'age': arr[4]});
   // increment id_counter
   id_counter++;
   console.log(books);
