@@ -119,7 +119,9 @@ function modifyTable() {
         book.push("");
       }
     }
-
+    document.getElementById("invalidmod").innerHTML = "";
+    var soMany = 10;
+    alert('You modified ${soMany}');
     sendDBEntry(book, type);
 }
 

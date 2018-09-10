@@ -7,17 +7,20 @@
 }
 
 
-/*@font-face {
-	font-family: canela;
-	src: url(canela.ttf);
-}*/
+@font-face {
+	font-family: AlexBrush-Regular;
+	src: url(AlexBrush-Regular.ttf);
+}
 
 div.header{
 	/*background-image: url(horoscope_bg.jpg);
 	color:white;
 	background-size: auto;*/
-	font-family: 'Fjord One', serif;
+	font-style: italic;
+	/*font-family: 'Fjord One', serif;*/
+	font-family: AlexBrush-Regular;
 	font-size: 1.5em;
+	text-align: center;
 
 
 }
