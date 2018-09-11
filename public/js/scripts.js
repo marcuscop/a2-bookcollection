@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 var BOOK_ID = 2;
 
-=======
 function search() {
   var input, filter, table, tr, td, i;
   input = document.getElementById("myInput");
@@ -16,7 +14,7 @@ function search() {
       } else {
         tr[i].style.display = "none";
       }
-    }       
+    }
   }
 }
 >>>>>>> f28cc81290a6dc3b15ce4b43b30f4ef7320a862c
@@ -90,7 +88,6 @@ function addToTable() {
     text = (new Date()).getFullYear() - parseInt(x.elements[i-1].value.substring(0,4));
     cell = row.insertCell();
     cell.innerHTML = text;
-<<<<<<< HEAD
 
     //Delete Button
     cell = row.insertCell();
@@ -104,9 +101,7 @@ function addToTable() {
 
     BOOK_ID = BOOK_ID + 1;
 
-=======
     alert('Congratulations! You added a book to your collection!');
->>>>>>> f28cc81290a6dc3b15ce4b43b30f4ef7320a862c
     sendDBEntry(book, type);
 }
 
