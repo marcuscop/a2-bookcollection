@@ -1,3 +1,20 @@
+function search() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
 function searchTable() {
   var x = document.getElementById("form5");
   var text = "";
@@ -32,11 +49,15 @@ function deleteFromTable() {
           valid = 1;
           book.push(x.elements[0].value);
           table.deleteRow(i);
+          alert('You deleted a book in your collection!');
           sendDBEntry(book, type);
         }
     }
     if (valid == 0) {
     	document.getElementById("invalid").innerHTML = "There is no book with that name in your collection!";
+    }
+    if (valid == 1) {
+    	document.getElementById("invalid").innerHTML = "";
     }
 
 }
@@ -65,7 +86,7 @@ function addToTable() {
     text = (new Date()).getFullYear() - parseInt(x.elements[i-1].value.substring(0,4));
     cell = row.insertCell();
     cell.innerHTML = text;
-
+    alert('Congratulations! You added a book to your collection!');
     sendDBEntry(book, type);
 }
 
@@ -85,6 +106,7 @@ function handleModify() {
     if (valid == 0) {
     	document.getElementById("invalidmod").innerHTML = "There is no book with that name in your collection!";
     }
+
 }
 
 function modifyTable() {
@@ -121,7 +143,7 @@ function modifyTable() {
     }
     document.getElementById("invalidmod").innerHTML = "";
     var soMany = 10;
-    alert('You modified ${soMany}');
+    alert('You modified a book in your collection!');
     sendDBEntry(book, type);
 }
 

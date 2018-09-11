@@ -1,5 +1,5 @@
 /*Style your own assignment! This is fun! */body {
-	padding-left: 10px;
+	padding-left: 16px;
 	background-image: url(background.jpg);
 	background-size: cover;
 	font-family: 'Fjord One', serif;
@@ -7,22 +7,32 @@
 }
 
 
-@font-face {
-	font-family: AlexBrush-Regular;
-	src: url(AlexBrush-Regular.ttf);
-}
-
 div.header{
 	/*background-image: url(horoscope_bg.jpg);
 	color:white;
 	background-size: auto;*/
 	font-style: italic;
-	/*font-family: 'Fjord One', serif;*/
-	font-family: AlexBrush-Regular;
+	font-family: 'Fjord One', serif;
 	font-size: 1.5em;
 	text-align: center;
 
+/*    background-color: #cc99ff;
+    -webkit-animation-name: example; 
+    -webkit-animation-duration: 10s; 
+    animation-name: example;
+    animation-duration: 10s;
 
+
+	@-webkit-keyframes example {
+    from {background-color: #cc99ff;}
+    to {background-color: #9966ff;}
+}}
+
+
+@keyframes example {
+    from {background-color: #cc99ff;}
+    to {background-color: #9966ff;}
+}*/
 }
 button {
 	text-align: center;
@@ -33,6 +43,10 @@ button {
 	border-radius: 20%;
 	padding: 10px 10px;
 }
+button:hover {
+	opacity: 0.6;
+}
+
 div#modify {
 	visibility: hidden;
 }
@@ -40,7 +54,15 @@ p#invalid, p#invalidmod, p#invalidSearch {
 	color: red;
 	font-style:italic;
 }
-
+#myInput {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
 table {
     width:100%;
 }
@@ -57,6 +79,9 @@ table tr:nth-child(even) {
 }
 table tr:nth-child(odd) {
    background-color: #fff;
+}
+table tr:hover {
+  background-color: #f1f1f1;
 }
 table th {
     background-color: #cc99ff;

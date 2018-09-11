@@ -48,8 +48,8 @@ var server = http.createServer (function (req, res) {
     case '/js/scripts.js':
       sendFile(res, 'public/js/scripts.js', 'text/javascript')
       break
-    case '/css/caveat-regular.ttf':
-      sendFile(res, 'public/css/caveat-regular.ttf')
+    case '/css/AlexBrush-Regular.ttf':
+      sendFile(res, 'public/css/AlexBrush-Regular.ttf')
       break
     case '/books':
       if(req.method == 'POST'){
