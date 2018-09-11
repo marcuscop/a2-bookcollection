@@ -17,7 +17,7 @@ function search() {
     }
   }
 }
->>>>>>> f28cc81290a6dc3b15ce4b43b30f4ef7320a862c
+
 function searchTable() {
   var x = document.getElementById("form5");
   var text = "";
