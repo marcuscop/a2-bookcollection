@@ -1,3 +1,25 @@
+<<<<<<< HEAD
+var BOOK_ID = 2;
+
+=======
+function search() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+>>>>>>> f28cc81290a6dc3b15ce4b43b30f4ef7320a862c
 function searchTable() {
   var x = document.getElementById("form5");
   var text = "";
@@ -25,18 +47,22 @@ function deleteFromTable() {
     var x = document.getElementById("form2");
     var text = "";
     var i;
-    var valid =0;
+    var valid = 0;
     var table = document.getElementById("myTable");
     for (i = 1; i < table.rows.length; i++) {
         if(x.elements[0].value == table.rows.item(i).cells[0].innerHTML){
           valid = 1;
           book.push(x.elements[0].value);
           table.deleteRow(i);
+          alert('You deleted a book in your collection!');
           sendDBEntry(book, type);
         }
     }
     if (valid == 0) {
     	document.getElementById("invalid").innerHTML = "There is no book with that name in your collection!";
+    }
+    if (valid == 1) {
+    	document.getElementById("invalid").innerHTML = "";
     }
 
 }
@@ -53,20 +79,64 @@ function addToTable() {
     var row = table.insertRow();
     var cell;
     for (i = 0; i < x.length ;i++) {
-    	console.log(i);
         book[i] = x.elements[i].value;
         text = x.elements[i].value;
         cell = row.insertCell();
         cell.innerHTML = text;
     }
+
     //Derived field
-    console.log(i);
     book[i] = (new Date()).getFullYear() - parseInt(x.elements[i-1].value.substring(0,4));
     text = (new Date()).getFullYear() - parseInt(x.elements[i-1].value.substring(0,4));
     cell = row.insertCell();
     cell.innerHTML = text;
+<<<<<<< HEAD
 
+    //Delete Button
+    cell = row.insertCell();
+    cell.id = BOOK_ID + 1;
+    var btn = document.createElement('button');
+    btn.id = BOOK_ID + 1;
+    //console.log(btn.id);
+    btn.innerHTML = "Delete";
+    btn.onclick = deleteButton.bind(btn.id);
+    cell.appendChild(btn);
+
+    BOOK_ID = BOOK_ID + 1;
+
+=======
+    alert('Congratulations! You added a book to your collection!');
+>>>>>>> f28cc81290a6dc3b15ce4b43b30f4ef7320a862c
     sendDBEntry(book, type);
+}
+
+function deleteButton(clicked_id) {
+    //check if clicked id is a string
+    var id;
+    if(typeof clicked_id === 'string') {
+      id = clicked_id;
+    } else {
+      id = clicked_id.target.id;
+    }
+
+    var type = "delete";
+    var book = [];
+    var text = "";
+    var i;
+    var valid = 0;
+    var table = document.getElementById("myTable");
+    for (i = 1; i < table.rows.length; i++) {
+        if(table.rows.item(i).cells[5].id == id){ // find button pressed
+          valid = 1;
+          book.push(table.rows.item(i).cells[0].innerHTML);
+          table.deleteRow(i);
+          sendDBEntry(book, type);
+        }
+    }
+    if (valid == 0) {
+    	document.getElementById("invalid").innerHTML = "There is no book with that name in your collection!";
+    }
+
 }
 
 function handleModify() {
@@ -85,6 +155,7 @@ function handleModify() {
     if (valid == 0) {
     	document.getElementById("invalidmod").innerHTML = "There is no book with that name in your collection!";
     }
+
 }
 
 function modifyTable() {
@@ -119,7 +190,9 @@ function modifyTable() {
         book.push("");
       }
     }
-
+    document.getElementById("invalidmod").innerHTML = "";
+    var soMany = 10;
+    alert('You modified a book in your collection!');
     sendDBEntry(book, type);
 }
 

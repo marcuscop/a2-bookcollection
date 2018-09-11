@@ -163,7 +163,7 @@
 	    </p>
 	    </form>
 
-	    
+
 
       <p>
         <button onclick="modifyTable()"> Modify Book </button>
@@ -172,6 +172,7 @@
 
 	    <h2>Book Collection</h2>
 
+		<input type="text" id="myInput" onkeyup="search()" placeholder="Search for book.." title="Type in a name">
 		<table id="myTable">
 		  <tr style="text-align:center">
 		    <th>Title</th>
@@ -180,12 +181,14 @@
 		    <th>Published date</th>
 		    <th>Book age</th>
 		  </tr>
+<!--
 		  <tr>
 		    <td>Harry Potter</td>
 		    <td>J.K. Rowling</td>
 		    <td>fiction</td>
 		    <td>03-24-2002</td>
 		    <td>16</td>
+        <td id = '1'><button id = '1' onclick="deleteButton(this.id)"> Delete </button></td>
 		  </tr>
 		  <tr>
 		    <td>Lord of the Rings</td>
@@ -193,7 +196,10 @@
 		    <td>fiction</td>
 		    <td>09-12-1998</td>
 		    <td>20</td>
+        <td id = '2'><button  id = '2' onclick="deleteButton(this.id)"> Delete </button></td>
 		  </tr>
+
+-->
 		</table>
 
 		<br><br>
